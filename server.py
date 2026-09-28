@@ -1,10 +1,10 @@
 from flask import Flask,render_template,request,jsonify
 #from connector import connect
 #import _mysql_connector
-from mystudent import student
+#from mystudent import student
 import os
 from dotenv import load_dotenv
-from mystudent import Student
+#from mystudent import Student
 
 load_dotenv()
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -20,7 +20,7 @@ def HOME():
 
 @server.route("/add_student/<name>/<age>/<city>", methods=["POST","GET"])
 def add_student(name,age,city):
-    student = Student(name,age,city)
+    #student = Student(name,age,city)
     #student.save()
     return jsonify({'res':201}), 201
     
