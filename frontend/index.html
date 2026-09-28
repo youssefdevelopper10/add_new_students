@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الطلاب - الصفحة الرئيسية</title>
+
+    <style>
+        /* Design global - Fond dégradé fluide */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Conteneur principal */
+        .main-container {
+            display: flex;
+            flex-direction: row;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+
+            width: 1000px;
+            max-width: 100%;
+
+            overflow: hidden;
+        }
+
+        /* SECTION CONTENU */
+        .content-section {
+            flex: 1.2;
+            padding: 40px;
+
+            background-color: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content-section h1 {
+            color: #1a2a6c;
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .content-section p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        /* IMAGE */
+        .video-container {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            border-radius: 12px;
+
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+            background: #eee;
+        }
+
+        .video-container img {
+            display: block;
+
+            width: 100%;
+            height: auto;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            transition: transform 0.4s ease;
+        }
+
+        /* Petit effet au survol */
+        .video-container:hover img {
+            transform: scale(1.03);
+        }
+
+        /* SECTION FORMULAIRE */
+        .form-section {
+            flex: 0.8;
+
+            padding: 40px;
+
+            background: #fcfcfc;
+
+            border-right: 1px solid #eee;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-section h2 {
+            color: #333;
+
+            margin-top: 0;
+            margin-bottom: 25px;
+
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #4a5568;
+
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 2px solid #e2e8f0;
+
+            border-radius: 8px;
+
+            box-sizing: border-box;
+
+            font-size: 14px;
+
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #b21f1f;
+
+            box-shadow:
+                0 0 0 3px rgba(178, 31, 31, 0.2);
+
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #1a2a6c,
+                #b21f1f
+            );
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 4px 15px rgba(26, 42, 108, 0.3);
+
+            transition: all 0.3s ease;
+
+            margin-top: 10px;
+        }
+
+        button:hover {
+            opacity: 0.95;
+
+            transform: translateY(-2px);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            .main-container {
+                flex-direction: column;
+            }
+
+            .form-section {
+                border-right: none;
+
+                border-top: 1px solid #eee;
+            }
+
+            .content-section {
+                padding: 25px;
+            }
+
+            .form-section {
+                padding: 25px;
+            }
+
+            .content-section h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <!-- SECTION GAUCHE : CONTENU & IMAGE -->
+
+        <div class="content-section">
+
+            <h1>
+                مرحباً بكم في منصة إدارة الطلاب الذكية
+            </h1>
+
+            <p>
+                شاهد الفيديو التعريفي أدناه لتتعرف على مميزات المنصة،
+                وكيفية تتبع بيانات الطلاب، وإدارة الفصول الدراسية
+                بكل سهولة ويسر وبشكل مؤمن بالكامل.
+            </p>
+
+            <!-- IMAGE -->
+
+            <div class="video-container">
+
+                <img
+                    src="{{ url_for('static', filename='img/img.png') }}"
+                    alt="صورة تعريفية لمنصة إدارة الطلاب"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- SECTION DROITE : FORMULAIRE -->
+
+        <div class="form-section">
+
+            <h2>
+                تسجيل طالب جديد
+            </h2>
+
+            <form id="studentForm">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        الاسم:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="أدخل اسم الطالب"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="age">
+                        السن:
+                    </label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="أدخل السن"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="city">
+                        المدينة:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="أدخل المدينة"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit">
+                    إرسال البيانات
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        document
+            .getElementById('studentForm')
+            .addEventListener('submit', function(e) {
+
+                e.preventDefault();
+
+                const name = encodeURIComponent(
+                    document.getElementById('name').value
+                );
+
+                const age = encodeURIComponent(
+                    document.getElementById('age').value
+                );
+
+                const city = encodeURIComponent(
+                    document.getElementById('city').value
+                );
+
+                const url =
+                    `/add_student/${name}/${age}/${city}`;
+                var my_variable = "this is my sql"
+
+                fetch(url, {
+                    method: 'POST'
+                })
+
+                .then(response => {
+
+                    if (response.status === 201) {
+
+                        alert('تم حفظ البيانات بنجاح!');
+
+                        document
+                            .getElementById('studentForm')
+                            .reset();
+
+                    } else {
+
+                        alert(
+                            'حدث خطأ أثناء حفظ البيانات.'
+                        );
+
+                    }
+
+                })
+
+                .catch(error => {
+
+                    console.error('Erreur:', error);
+
+                    alert(
+                        'Impossible de se connecter au serveur.'
+                    );
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
